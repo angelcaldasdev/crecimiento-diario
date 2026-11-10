@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crecimiento Diario | Pequeños pasos, grandes cambios</title>
+  <meta name="description" content="Artículos de crecimiento personal para construir hábitos, ordenar tu mente y avanzar un poco cada día.">
+
+  <!-- Tipografías: Exo 2 para títulos (similar a tu referencia) y Lora para leer artículos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Franja superior: frase del día (se llena con JavaScript) -->
+  <div class="franja-frase">
+    <p id="fraseDelDia"></p>
+    <button id="botonNuevaFrase" type="button">Otra frase</button>
+  </div>
+
+  <!-- Cabecera con logo y navegación -->
+  <header class="cabecera">
+    <a href="#inicio" class="logo" aria-label="Crecimiento Diario, ir al inicio">
+      <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="5" fill="#F2B632"/>
+      </svg>
+      <span>Crecimiento Diario</span>
+    </a>
+    <nav class="navegacion" aria-label="Principal">
+      <a href="#articulos">Artículos</a>
+      <a href="#habitos">Hábitos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Portada: anillos como un amanecer que se expande -->
+    <section class="heroe" id="inicio">
+      <div class="anillos" aria-hidden="true"></div>
+      <div class="heroe-contenido">
+        <h1>Cada día es una nueva oportunidad para crecer</h1>
+        <p>Ideas simples y prácticas para ordenar tu mente, construir hábitos y avanzar un poco más hoy que ayer.</p>
+        <a class="boton" href="#articulos">Leer los artículos</a>
+      </div>
+    </section>
+
+    <!-- Hábitos -->
+    <section class="seccion" id="habitos">
+      <h2>Tres ideas para empezar hoy</h2>
+      <div class="tres-columnas">
+        <article>
+          <h3>Empieza pequeño</h3>
+          <p>Cinco minutos de lectura o diez de ejercicio valen más que una promesa enorme que no cumples.</p>
+        </article>
+        <article>
+          <h3>Sé constante</h3>
+          <p>El cambio real viene de repetir lo simple todos los días, incluso cuando no tienes ganas.</p>
+        </article>
+        <article>
+          <h3>Reflexiona</h3>
+          <p>Al terminar el día, anota qué salió bien y qué ajustarás mañana. Así aprendes de cada jornada.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Artículos: se generan desde articulos.js -->
+    <section class="seccion seccion-clara" id="articulos">
+      <h2>Artículos</h2>
+      <div class="filtros" id="filtrosCategorias" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="cuadricula" id="listaArticulos"></div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section class="seccion" id="sobre-mi">
+      <h2>Sobre este espacio</h2>
+      <p class="texto-centrado">Crecimiento Diario nace para compartir lo que voy aprendiendo sobre disciplina, mentalidad y bienestar. Publico artículos nuevos cada cierto tiempo, pensados para leerse en pocos minutos y aplicarse el mismo día.</p>
+    </section>
+  </main>
+
+  <!-- Pie de página (inspirado en la referencia) -->
+  <footer class="pie" id="contacto">
+    <div class="pie-columnas">
+      <div>
+        <p class="pie-marca">Crecimiento<br>Diario</p>
+      </div>
+      <div>
+        <h3>Explorar</h3>
+        <a href="#articulos">Artículos</a>
+        <a href="#habitos">Hábitos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <!-- Cambia este correo por el tuyo -->
+        <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a>
+      </div>
+      <div>
+        <h3>Redes sociales</h3>
+        <!-- Cambia los # por tus enlaces reales -->
+        <a href="#">YouTube</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <p class="pie-derechos">Copyright © <span id="anioActual"></span> Crecimiento Diario</p>
+  </footer>
+
+  <!-- Ventana para leer un artículo completo -->
+  <dialog id="ventanaArticulo" aria-labelledby="tituloVentana">
+    <button type="button" class="cerrar" id="botonCerrar" aria-label="Cerrar artículo">×</button>
+    <p class="meta" id="metaVentana"></p>
+    <h2 id="tituloVentana"></h2>
+    <div class="cuerpo-articulo" id="cuerpoVentana"></div>
+  </dialog>
+
+  <script src="articulos.js"></script>
+  <script src="funciones.js"></script>
+</body>
+</html>

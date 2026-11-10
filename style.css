@@ -1,0 +1,118 @@
+/* ==========================================================
+   Crecimiento Diario - Estilos
+   Paleta inspirada en tu referencia: teal profundo + amarillo
+   ========================================================== */
+:root {
+  --noche: #0B2830;      /* fondo oscuro de la portada */
+  --mar: #2F6B77;        /* teal de la franja y enlaces */
+  --amanecer: #F2B632;   /* amarillo para botones y acentos */
+  --bruma: #EEF2F1;      /* fondo claro */
+  --tinta: #10242B;      /* texto principal */
+  --blanco: #FFFFFF;
+  --fuente-titulos: "Exo 2", system-ui, sans-serif;
+  --fuente-lectura: "Lora", Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { font-family: var(--fuente-titulos); color: var(--tinta); background: var(--blanco); line-height: 1.6; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--amanecer); outline-offset: 3px; }
+
+/* ---------- Franja superior ---------- */
+.franja-frase {
+  background: var(--mar); color: var(--blanco);
+  display: flex; gap: 1rem; align-items: center; justify-content: center;
+  padding: .7rem 1rem; text-align: center; font-weight: 600;
+}
+.franja-frase button {
+  background: var(--amanecer); color: var(--noche); border: 0; border-radius: 6px;
+  padding: .4rem .9rem; font: 800 .9rem var(--fuente-titulos); cursor: pointer;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  position: sticky; top: 0; z-index: 10; background: var(--blanco);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: .5rem 2rem; padding: .8rem clamp(1rem, 6vw, 6rem);
+  box-shadow: 0 1px 0 rgba(16, 36, 43, .12);
+}
+.logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 800; font-size: 1.15rem; color: var(--noche); }
+.navegacion { display: flex; gap: clamp(1rem, 3vw, 2.5rem); flex-wrap: wrap; }
+.navegacion a { text-decoration: none; font-size: 1.05rem; padding: .3rem 0; border-bottom: 2px solid transparent; }
+.navegacion a:hover { border-color: var(--amanecer); }
+
+/* ---------- Portada ---------- */
+.heroe {
+  position: relative; overflow: hidden; color: var(--blanco); text-align: center;
+  background: var(--noche);
+  padding: clamp(5rem, 14vw, 9rem) 1.5rem clamp(7rem, 16vw, 11rem);
+  clip-path: ellipse(85% 100% at 50% 0);   /* curva inferior como en la referencia */
+}
+/* Anillos concéntricos que nacen desde abajo, como un sol que sale */
+.anillos {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 50% 115%, rgba(242, 182, 50, .55) 0 90px, transparent 260px),
+    repeating-radial-gradient(circle at 50% 115%, transparent 0 70px, rgba(242, 182, 50, .22) 71px 73px);
+  animation: amanecer 2.2s ease-out both;   /* única animación automática de la página */
+}
+@keyframes amanecer { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.heroe-contenido { position: relative; max-width: 760px; margin: 0 auto; }
+.heroe h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.2rem; }
+.heroe p { font-size: clamp(1.05rem, 2.2vw, 1.35rem); margin-bottom: 2rem; opacity: .92; }
+.boton {
+  display: inline-block; background: var(--amanecer); color: var(--noche); text-decoration: none;
+  font-weight: 800; padding: .9rem 2rem; border-radius: 8px; transition: transform .2s;
+}
+.boton:hover { transform: translateY(-2px); }
+
+/* ---------- Secciones ---------- */
+.seccion { padding: clamp(3rem, 8vw, 5.5rem) clamp(1rem, 6vw, 6rem); max-width: 1200px; margin: 0 auto; }
+.seccion-clara { max-width: none; background: var(--bruma); }
+.seccion-clara > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+.seccion h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); text-align: center; margin-bottom: 2rem; }
+.texto-centrado { max-width: 680px; margin: 0 auto; text-align: center; font-size: 1.15rem; }
+.tres-columnas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; }
+.tres-columnas h3 { color: var(--mar); font-size: 1.35rem; margin-bottom: .4rem; }
+
+/* ---------- Filtros y tarjetas ---------- */
+.filtros { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 2rem; }
+.filtros button {
+  border: 2px solid var(--mar); background: transparent; color: var(--mar); border-radius: 999px;
+  padding: .4rem 1.1rem; font: 600 .95rem var(--fuente-titulos); cursor: pointer;
+}
+.filtros button[aria-pressed="true"] { background: var(--mar); color: var(--blanco); }
+.cuadricula { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.5rem; }
+.tarjeta { background: var(--blanco); border-radius: 14px; padding: 1.6rem; border-top: 5px solid var(--amanecer); display: flex; flex-direction: column; gap: .6rem; }
+.tarjeta .meta, .meta { color: var(--mar); font-size: .9rem; font-weight: 600; }
+.tarjeta h3 { font-size: 1.35rem; line-height: 1.25; }
+.tarjeta p { font-family: var(--fuente-lectura); flex: 1; }
+.tarjeta button {
+  align-self: flex-start; background: var(--noche); color: var(--blanco); border: 0; border-radius: 8px;
+  padding: .55rem 1.2rem; font: 800 .95rem var(--fuente-titulos); cursor: pointer;
+}
+.tarjeta button:hover { background: var(--mar); }
+
+/* ---------- Ventana de lectura ---------- */
+dialog { border: 0; border-radius: 16px; width: min(720px, 92vw); max-height: 88vh; padding: clamp(1.5rem, 4vw, 2.5rem); margin: auto; }
+dialog::backdrop { background: rgba(11, 40, 48, .75); }
+dialog h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.15; margin: .3rem 0 1.2rem; }
+.cuerpo-articulo p { font-family: var(--fuente-lectura); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.1rem; max-width: 62ch; }
+.cerrar { position: absolute; top: .6rem; right: .9rem; background: none; border: 0; font-size: 2rem; cursor: pointer; color: var(--noche); }
+
+/* ---------- Pie de página ---------- */
+.pie { background: #EFEFEF; clip-path: ellipse(85% 100% at 50% 100%); padding-top: 4rem; }
+.pie-columnas { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 2rem; }
+.pie-marca { font-weight: 800; font-size: 1.6rem; line-height: 1.1; letter-spacing: .08em; }
+.pie h3 { font-size: 1.15rem; margin-bottom: .4rem; }
+.pie a { display: block; color: var(--mar); text-decoration: none; padding: .15rem 0; }
+.pie a:hover { text-decoration: underline; }
+.pie-derechos { background: var(--blanco); text-align: center; padding: 1.3rem; }
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .anillos { animation: none; }
+  .boton { transition: none; }
+}
